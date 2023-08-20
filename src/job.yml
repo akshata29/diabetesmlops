@@ -1,8 +1,8 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: model
 command: >-
-  python
   az ml data create --name diabetes-dev-folder --version 1 --path ./experimentation/data --resource-group dataai --workspace-name dataaiamlwks
+  python train.py
 inputs:
   training_data: 
     type: uri_folder 
