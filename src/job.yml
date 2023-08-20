@@ -1,15 +1,14 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: model
 command: >-
-  python 
-  --
-  --
+  python
+  az ml data create --name diabetes-dev-folder --version 1 --path ./experimentation/data --resource-group dataai --workspace-name dataaiamlwks
 inputs:
   training_data: 
     type: uri_folder 
-    path: 
+    path: azureml://datastores/workspaceblobstore/paths/diabetes-dev-folder/
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
-compute: 
-experiment_name: 
-description: 
+compute: azureml:dataaicpu
+experiment_name: diabetesmlops
+description: Diabetes MLOps Example
